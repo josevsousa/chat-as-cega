@@ -1,0 +1,7 @@
+{
+  "name": "chat-as-cega",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
