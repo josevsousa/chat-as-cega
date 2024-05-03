@@ -25,3 +25,38 @@
   #container a {
     text-decoration: none;
   }
+
+  #inputNome{
+    margin: 30px;
+    
+    border-radius: 13px;
+    ion-input{
+      border-radius: 13px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    #inputNome {
+      margin: 20px auto;
+        width: 600px;
+    }
+
+
+}
+
+#imgs{
+  img{
+    margin: 4px;
+    opacity: 0.5
+  };
+  img:hover{
+    opacity: 1;
+  }
+}
+
+.imgTrans{
+  opacity: 0.5;
+}
+.imgTransAtivo{
+  opacity: 1;
+}

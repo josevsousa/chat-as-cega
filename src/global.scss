@@ -32,6 +32,21 @@
  * https://ionicframework.com/docs/theming/dark-mode
  */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+ @import "@ionic/angular/css/palettes/dark.always.css";
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import '@ionic/angular/css/palettes/dark.system.css';
+
+@media (min-width: 769px) {
+    .auth-form {
+        width: 500px;
+    }
+
+    .edit-profile-modal {
+        --height: 680px;
+    }
+
+    .list-profile {
+        width: 500px;
+        margin: auto;
+    }
+}

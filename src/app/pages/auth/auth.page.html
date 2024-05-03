@@ -1,20 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Auth
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <strong>Ola Auth? {{name}}</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <img width="100px" height="100px" src="{{photoImg}}"  alt="">
+    <br>
+    <br>
+    <strong>Login</strong>
+    <br>
+    <br>
+    <div id="imgs">
+      <img (click)="imgSel('m')" src="../../../assets/img/m1.png" id="m" width="40px" alt="">
+      <img (click)="imgSel('f')" src="../../../assets/img/f1.png" id="f" width="40px" alt="">
+      <img (click)="imgSel('n')" src="../../../assets/img/n.png" id="n" width="40px" alt="">
+    </div>
+    <br>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-item id="inputNome">
+        <ion-label position="floating">Nome <ion-text color="danger">*</ion-text></ion-label>
+        <ion-input required formControlName="nome" type="text"></ion-input>
+      </ion-item>
+      <br>
+      <ion-button block color="primary" type="submit" [disabled]="form.invalid">
+        Login
+      </ion-button>
+    </form>
   </div>
 </ion-content>
