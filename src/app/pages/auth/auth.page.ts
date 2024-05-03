@@ -1,6 +1,6 @@
 import { Component ,inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonInput, IonButton, IonTabButton, IonIcon, IonLabel, IonItem, IonText, IonCheckbox, IonRadio, IonRadioGroup } from '@ionic/angular/standalone';
+import { IonContent, IonInput, IonButton, IonTabButton, IonIcon, IonLabel, IonItem, IonText, IonCheckbox, IonRadio, IonRadioGroup, IonTabs, IonTabBar, IonNote } from '@ionic/angular/standalone';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { UtilsService } from 'src/app/services/utils.service';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
@@ -10,7 +10,7 @@ import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
   standalone: true,
-  imports: [IonRadioGroup, IonRadio, IonCheckbox, IonText, IonItem, IonLabel, IonIcon, IonTabButton, IonButton, 
+  imports: [IonNote, IonText, IonItem, IonLabel, IonIcon, IonTabButton, IonButton, 
     IonInput, 
     IonContent,
     CommonModule, FormsModule, ReactiveFormsModule ]
@@ -44,7 +44,7 @@ export class AuthPage {
       this.photoImg = "../../../assets/img/m1.png";
       this.sexo = sexo;
     }else{
-      this.photoImg = "../../../assets/img/n.png";
+      this.photoImg = "https://ionicframework.com/docs/img/demos/avatar.svg";
       this.sexo = sexo;
     }
   }
