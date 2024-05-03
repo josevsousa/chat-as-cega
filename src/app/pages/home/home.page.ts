@@ -53,18 +53,23 @@ export class HomePage implements OnInit {
 
   }
 
-  async carregarUsers(){
-    const loading = await this.utilsService.loading();
-    await loading.present(); // inicialize o loading
+  carregarUsers(){
+    // const loading = await this.utilsService.loading();
+    // await loading.present(); // inicialize o loading
+
+    console.log("===== Carregando users =====");
 
     // === carrega todos os users
      this.authFirebaseService.getColletionData('users')
       .then(resp => {
+        
+        console.log("=====  resp do firebase: ", resp);
         this.usersList$ =  resp;
       })
       .catch(err => {console.log('erro carragarUsers: ', err)})
       .finally(()=>{
-        loading.dismiss();
+        // loading.dismiss();
+        this.usersList$.subscribe(resp => console.log("=== Reposta json do firebase :  ",resp))
       })
   } 
 

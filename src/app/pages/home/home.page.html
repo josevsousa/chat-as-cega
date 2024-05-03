@@ -19,6 +19,10 @@
   </ion-header>
 
   <div id="container">
+    <!-- @for (item of usersList$|async; track $index) {
+      <p>{{item.name}}</p>
+    } -->
+
     <ion-list class="telaTablet">
       @for (item of usersList$| async; track $index) {
         @if (item.uid !== userAtivo.uid) {

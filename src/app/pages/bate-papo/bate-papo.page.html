@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>bate-papo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>okok</h1>
+  <ion-title size="large">bate-papo</ion-title>
+      @for (item of usersList$|async; track $index) {
+        <p>{{item.name}}</p>
+      }
+
+
+</ion-content>
