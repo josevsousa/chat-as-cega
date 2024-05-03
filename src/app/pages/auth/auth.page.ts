@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonContent, IonInput, IonButton, IonTabButton, IonIcon, IonLabel, IonItem, IonText, IonCheckbox, IonRadio, IonRadioGroup } from '@ionic/angular/standalone';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { UtilsService } from 'src/app/services/utils.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 
 @Component({
   selector: 'app-auth',
@@ -18,7 +18,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AuthPage {
   private formBuilderService = inject(FormBuilder);   
   utilsService = inject(UtilsService); 
-  authService = inject(AuthService);
+  authFirebaseService = inject(AuthFirebaseService);
   
   protected form = this.formBuilderService.group({
     nome: ['', Validators.required]
@@ -33,7 +33,7 @@ export class AuthPage {
     sexo: String(this.sexo), 
     imgPhoto: String(this.photoImg) 
    }  
-   this.authService.login(user); 
+   this.authFirebaseService.login(user); 
   };
   
   imgSel(sexo: string){
