@@ -1,12 +1,11 @@
 <ion-header >
   <ion-toolbar>
+    <ion-chip color="success" mode="md" slot="end" outline="true">
+      <ion-icon name="chatbubble-ellipses-sharp"></ion-icon>
+      <ion-label>3</ion-label>
+    </ion-chip>
     <ion-title>
-      <ion-item>
-        <ion-avatar aria-hidden="true" slot="start">
-          <img src="{{userAtivo.imgPhoto}}" alt="">
-        </ion-avatar>
-        {{userAtivo.name}}
-    </ion-item>
+      Chats a cega
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -36,4 +35,18 @@
       }
     </ion-list>
   </div>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom,top">
+      <ion-tab-button tab="tab1">
+        <ion-icon name="cog-sharp"></ion-icon>
+        <ion-label>Config</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="tab2">
+        <ion-icon name="heart-sharp" color="success"></ion-icon>
+        <ion-label><b>4</b> favoritos</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
 </ion-content>

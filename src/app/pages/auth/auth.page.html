@@ -4,7 +4,7 @@
     <img width="100px" height="100px" src="{{photoImg}}"  alt="">
     <br>
     <br>
-    <strong>Login</strong>
+    <strong>Chat as Cega</strong>
     <br>
     <br>
     <div id="imgs">
@@ -12,10 +12,12 @@
       <img (click)="imgSel('f')" src="../../../assets/img/f1.png" id="f" width="40px" alt="">
       <img (click)="imgSel('n')" src="../../../assets/img/n.png" id="n" width="40px" alt="">
     </div>
+
+    <ion-note>Escolha o avatar!</ion-note>
     <br>
     <form class="telaTablet" [formGroup]="form" (ngSubmit)="onSubmit()">
       <ion-item id="inputNome">
-        <ion-label position="floating">Nome <ion-text color="danger">*</ion-text></ion-label>
+        <ion-label position="floating">Seu nome <ion-text color="danger">*</ion-text></ion-label>
         <ion-input required formControlName="nome" type="text"></ion-input>
       </ion-item>
       <br>
@@ -24,4 +26,6 @@
       </ion-button>
     </form>
   </div>
+
+  
 </ion-content>

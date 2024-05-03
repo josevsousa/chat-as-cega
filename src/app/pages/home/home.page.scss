@@ -1,12 +1,12 @@
-#container {
-  text-align: center;
+// #container {
+//   text-align: center;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
 // #container strong {
 //   font-size: 20px;
@@ -31,4 +31,8 @@
 }
 .ativo{
   opacity: 1;
+}
+
+ion-chip{
+  margin-right: 20px;
 }
