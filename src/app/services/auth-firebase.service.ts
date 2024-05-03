@@ -73,9 +73,9 @@ export class AuthFirebaseService {
 
   // =============== BASE DE DADOS FIRESTORE userList ================
   // Lista de documentos
-  getColletionData(path: string, collectionQurey?: any) {
+  async getColletionData(path: string, collectionQurey?: any) {
     const ref = collection(getFirestore(), path);
-    return collectionData(query(ref, collectionQurey));
+    return await collectionData(query(ref, collectionQurey));
   }
 
   // Busca um documento passando o uid

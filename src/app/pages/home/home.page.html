@@ -1,7 +1,12 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
     <ion-title>
-      Blank
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img src="{{userAtivo.imgPhoto}}" alt="">
+        </ion-avatar>
+        {{userAtivo.name}}
+    </ion-item>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,6 +19,17 @@
   </ion-header>
 
   <div id="container">
-    <ion-button (click)="teste()">Click Me</ion-button>
+    <ion-list class="telaTablet">
+      @for (item of usersList$| async; track $index) {
+        @if (item.uid !== userAtivo.uid) {
+          <ion-item>
+            <ion-avatar aria-hidden="true" slot="start">
+              <img src="{{item.imgPhoto}}" class="avatar" [ngClass]=" item.online ? 'ativo' : ''">
+            </ion-avatar>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-item>
+        }
+      }
+    </ion-list>
   </div>
 </ion-content>

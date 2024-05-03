@@ -50,3 +50,15 @@
         margin: auto;
     }
 }
+
+.telaTablet{
+    border-radius: 15px;
+    margin: 15px;
+}
+
+@media (min-width: 769px) {
+    .telaTablet {
+      margin: 20px auto;
+        width: 600px;
+    }
+  }
