@@ -12,7 +12,7 @@ import {
   IonInput,
   IonList,
   IonItem, 
-  IonLabel, IonAvatar, IonChip, IonTabs, IonTabBar, IonButtons, IonBackButton, IonSpinner } from '@ionic/angular/standalone';
+  IonLabel, IonNote, IonAvatar, IonChip, IonTabs, IonTabBar, IonButtons, IonBackButton, IonSpinner, IonItemSliding, IonItemOption, IonItemOptions, IonFooter, IonNavLink, IonText } from '@ionic/angular/standalone';
 import { Observable, map } from 'rxjs';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -23,7 +23,7 @@ import { User } from 'src/app/interfaces/user';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonSpinner, IonBackButton, IonButtons, IonChip, IonAvatar,
+  imports: [IonText, IonNote, IonNavLink, IonFooter, IonItemOptions, IonItemOption, IonItemSliding, IonSpinner, IonBackButton, IonButtons, IonChip, IonAvatar,
     CommonModule,
     IonInput, 
     IonIcon, 
@@ -69,13 +69,13 @@ export class HomePage implements OnInit {
         this.usersList$ =  resp;
       })
       .catch(err => {console.log('erro carragarUsers: ', err)})
-      .finally(()=>{
-        // loading.dismiss();
-        this.usersList$.subscribe(resp => console.log("=== Reposta json do firebase :  ",resp))
-      })
   } 
 
   
+  onClick(event: any){
+    console.log("aquiiiii: ", event);
+    this.utilsService.routerLink('bate-papo')
+  }
 
   // teste() {
   //   this.utilsService.presentAlert({

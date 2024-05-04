@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
     <ion-chip color="success" mode="md" slot="end" outline="true">
       <ion-icon name="chatbubble-ellipses-sharp"></ion-icon>
@@ -10,46 +10,72 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content color="ligth">
   <div id="container">
-    @defer () {
-      <ion-list class="telaTablet">
-        @for (item of usersList$| async; track $index) {
-          @if (item.uid !== userAtivo.uid) {
-            <ion-item>
-              <ion-avatar aria-hidden="true" slot="start">
-                <img src="{{item.imgPhoto}}" class="avatar" [ngClass]=" item.online ? 'ativo' : ''">
-              </ion-avatar>
-              <ion-label>{{item.name}}</ion-label>
-            </ion-item>
-          }
-        }
-      </ion-list>
+    @defer() {
+    <ion-list class="telaTablet">
+      @for (user of usersList$| async; track $index) {
+      @if (user.uid !== userAtivo.uid) {
+      <ion-item-sliding>
+        <ion-item [button]="true"  (click)="onClick(user)">
+          <ion-avatar aria-hidden="true" slot="start">
+            <img src="{{user.imgPhoto}}" class="avatar" [ngClass]=" user.online ? 'ativo' : ''">
+          </ion-avatar>
+          <div class="unread-indicator-wrapper" slot="start"></div>
+          <ion-label>
+            <strong>{{user.name}}</strong>
+            <ion-text></ion-text>
+            <br />
+            <ion-note color="medium" class="ion-text-wrap">That is all.</ion-note>
+          </ion-label>
+          <div class="metadata-end-wrapper" slot="end">
+            <ion-note color="medium">03:44</ion-note>
+            <ion-icon color="medium" name="chevron-forward"></ion-icon>
+          </div>
+
+        </ion-item>
+        <ion-item-options slot="end">
+          <ion-item-option color="danger" expandable="true">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+      }
+      }
+    </ion-list>
     }@placeholder {
-      <ion-spinner name="circles"></ion-spinner>
+    <ion-spinner name="dots"></ion-spinner>
     }@loading {
-      <!-- <ion-spinner name="circles"></ion-spinner> -->
-    } 
-    
+    <ion-spinner name="circles"></ion-spinner>
+    }
   </div>
-
-  <ion-tabs>
-    <ion-tab-bar slot="bottom,top">
-      <ion-tab-button tab="tab1">
-        <ion-icon name="cog-sharp"></ion-icon>
-        <ion-label>Config</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="tab2">
-        <ion-icon name="heart-sharp" color="success"></ion-icon>
-        <ion-label><b>4</b> favoritos</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <!-- Tab bar -->
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="schedule">
+          <ion-icon name="calendar" aria-hidden="true"></ion-icon>
+          <ion-label>Schedule</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="speakers">
+          <ion-icon name="person-circle" aria-hidden="true"></ion-icon>
+          <ion-label>Speakers</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="map">
+          <ion-icon name="map" aria-hidden="true"></ion-icon>
+          <ion-label>Map</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="about">
+          <ion-icon name="information-circle" aria-hidden="true"></ion-icon>
+          <ion-label>About</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
