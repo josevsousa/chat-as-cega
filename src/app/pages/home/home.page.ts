@@ -12,7 +12,7 @@ import {
   IonInput,
   IonList,
   IonItem, 
-  IonLabel, IonAvatar, IonChip, IonTabs, IonTabBar, IonButtons, IonBackButton } from '@ionic/angular/standalone';
+  IonLabel, IonAvatar, IonChip, IonTabs, IonTabBar, IonButtons, IonBackButton, IonSpinner } from '@ionic/angular/standalone';
 import { Observable, map } from 'rxjs';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -23,7 +23,7 @@ import { User } from 'src/app/interfaces/user';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonBackButton, IonButtons, IonChip, IonAvatar,
+  imports: [IonSpinner, IonBackButton, IonButtons, IonChip, IonAvatar,
     CommonModule,
     IonInput, 
     IonIcon, 

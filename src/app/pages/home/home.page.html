@@ -18,22 +18,25 @@
   </ion-header>
 
   <div id="container">
-    <!-- @for (item of usersList$|async; track $index) {
-      <p>{{item.name}}</p>
-    } -->
-
-    <ion-list class="telaTablet">
-      @for (item of usersList$| async; track $index) {
-        @if (item.uid !== userAtivo.uid) {
-          <ion-item>
-            <ion-avatar aria-hidden="true" slot="start">
-              <img src="{{item.imgPhoto}}" class="avatar" [ngClass]=" item.online ? 'ativo' : ''">
-            </ion-avatar>
-            <ion-label>{{item.name}}</ion-label>
-          </ion-item>
+    @defer () {
+      <ion-list class="telaTablet">
+        @for (item of usersList$| async; track $index) {
+          @if (item.uid !== userAtivo.uid) {
+            <ion-item>
+              <ion-avatar aria-hidden="true" slot="start">
+                <img src="{{item.imgPhoto}}" class="avatar" [ngClass]=" item.online ? 'ativo' : ''">
+              </ion-avatar>
+              <ion-label>{{item.name}}</ion-label>
+            </ion-item>
+          }
         }
-      }
-    </ion-list>
+      </ion-list>
+    }@placeholder {
+      <ion-spinner name="circles"></ion-spinner>
+    }@loading {
+      <!-- <ion-spinner name="circles"></ion-spinner> -->
+    } 
+    
   </div>
 
   <ion-tabs>

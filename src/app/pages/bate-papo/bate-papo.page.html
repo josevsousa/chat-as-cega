@@ -7,9 +7,13 @@
 <ion-content [fullscreen]="true">
   <h1>okok</h1>
   <ion-title size="large">bate-papo</ion-title>
+  @defer () {
       @for (item of usersList$|async; track $index) {
         <p>{{item.name}}</p>
       }
+  }@placeholder {
+    <ion-spinner name="circles"></ion-spinner>
+  }
 
 
 </ion-content>
