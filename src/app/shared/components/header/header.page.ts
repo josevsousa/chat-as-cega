@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 
 @Component({
   selector: 'app-header',
@@ -10,11 +11,14 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
   standalone: true,
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
-export class HeaderPage implements OnInit {
+export class HeaderPage {
+
+  authFirebaseService = inject(AuthFirebaseService);
 
   constructor() { }
 
-  ngOnInit() {
+  teste(){
+    this.authFirebaseService.desconectar();
   }
 
 }

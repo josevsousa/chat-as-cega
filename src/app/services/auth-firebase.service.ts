@@ -21,7 +21,7 @@ export class AuthFirebaseService {
     const path = `users/${user.uid}`;
 
     // verificar se o user ja existe
-    this.getDocument(path)
+    return this.getDocument(path)
       .then(resp => {
         if (resp) {
           console.log('existe o user no db!');
@@ -51,27 +51,25 @@ export class AuthFirebaseService {
               })
             })
             .catch(err => console.log('Error setDocument: '))
+           
 
         }
       })
       .catch(err => { console.log('error getDocument', err) })
 
   }
-  desconectar() {
-    //atualizarStatusNoDb();
-    this.utilsService.delFromLocalStorage('user');
-    return this.utilsService.routerLink('login');
-  }
-  atualizarStatusNoDb(): void {
-    const uid = this.utilsService.getFromLocalStorage('user').uid;
-    const path = `users/${uid}`;
-    //=== atualizar que o user esta off ===
-    this.updateDocument(path, {
-      online: false
-    })
+
+  statusUserAtivo(status: boolean) {
+    const user = this.utilsService.getFromLocalStorage('user');
+    const path = `users/${user.uid}`;
+    if(status){
+      this.updateDocument(path, {online: true});
+    }else{
+      this.updateDocument(path, {online: false});
+    }
   }
 
-  // =============== BASE DE DADOS FIRESTORE userList ================
+  // ============== BASE DE DADOS FIRESTORE userList ================
   // Lista de documentos
   async getColletionData(path: string, collectionQurey?: any) {
     const ref = collection(getFirestore(), path);

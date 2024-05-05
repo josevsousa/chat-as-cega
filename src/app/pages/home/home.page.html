@@ -4,7 +4,7 @@
       <ion-icon name="chatbubble-ellipses-sharp"></ion-icon>
       <ion-label>3</ion-label>
     </ion-chip>
-    <ion-title>
+    <ion-title (click)="teste()">
       Chats a cega
     </ion-title>
   </ion-toolbar>
@@ -12,14 +12,13 @@
 
 <ion-content color="ligth">
   <div id="container">
-    @defer() {
     <ion-list class="telaTablet">
       @for (user of usersList$| async; track $index) {
       @if (user.uid !== userAtivo.uid) {
       <ion-item-sliding>
-        <ion-item [button]="true"  (click)="onClick(user)">
+        <ion-item [button]="true" (click)="onClick(user)">
           <ion-avatar aria-hidden="true" slot="start">
-            <img src="{{user.imgPhoto}}" class="avatar" [ngClass]=" user.online ? 'ativo' : ''">
+            <img src="{{user.imgPhoto}}" class="inativo" [ngClass]=" user.online ? 'ativo' : 'inativo'">
           </ion-avatar>
           <div class="unread-indicator-wrapper" slot="start"></div>
           <ion-label>
@@ -40,19 +39,14 @@
           </ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
-      }
-      }
+      }}
     </ion-list>
-    }@placeholder {
-    <ion-spinner name="dots"></ion-spinner>
-    }@loading {
-    <ion-spinner name="circles"></ion-spinner>
-    }
+
   </div>
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
+  <ion-toolbar #ddd>
     <ion-tabs>
       <!-- Tab bar -->
       <ion-tab-bar slot="bottom">

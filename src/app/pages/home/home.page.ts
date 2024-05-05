@@ -17,6 +17,7 @@ import { Observable, map } from 'rxjs';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { User } from 'src/app/interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -47,35 +48,47 @@ export class HomePage implements OnInit {
   utilsService = inject(UtilsService);
   authFirebaseService = inject(AuthFirebaseService);
   usersList$ = new Observable<any[]>();
+
+  router = inject(Router);
+
   userAtivo!: User;
+  loading = false;
 
   ngOnInit(){
     this.userAtivo = this.utilsService.getFromLocalStorage('user');
     this.carregarUsers();
+    this.utilsService.presentToast({
+      message: `Seja bem vindo! ${this.userAtivo.name}`,
+      duration: 2500,
+      color: 'primary',
+      position: 'top',
+      icon: 'alert-circle-outline'
+    });
+
+    
 
   }
 
+
   carregarUsers(){
-    // const loading = await this.utilsService.loading();
-    // await loading.present(); // inicialize o loading
-
     console.log("===== Carregando users =====");
-
     // === carrega todos os users
-     this.authFirebaseService.getColletionData('users')
-      .then(resp => {
+      this.authFirebaseService.getColletionData('users')
+      .then(resp =>{
         
         console.log("=====  resp do firebase: ", resp);
-        this.usersList$ =  resp;
+        //  this.usersList$ = resp;
+          this.usersList$ = resp;
+         
       })
       .catch(err => {console.log('erro carragarUsers: ', err)})
   } 
-
   
   onClick(event: any){
     console.log("aquiiiii: ", event);
-    this.utilsService.routerLink('bate-papo')
   }
+
+  
 
   // teste() {
   //   this.utilsService.presentAlert({
@@ -93,6 +106,19 @@ export class HomePage implements OnInit {
   // }
   // del() { console.log('okkkkkkk deletado') }
 
+  ngOnChanges(){
+    this.utilsService.presentToast({
+      message: `teste`,
+      duration: 2500,
+      color: 'primary',
+      position: 'top',
+      icon: 'alert-circle-outline'
+    })
+  }
 
+
+  teste(){
+    this.authFirebaseService.statusUserAtivo(false);
+  }
 
 }

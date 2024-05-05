@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import {
-  LoadingController
+  LoadingController, ToastController, ToastOptions
 } from '@ionic/angular'
 import {
   AlertController,
@@ -17,7 +17,7 @@ export class UtilsService {
   router = inject(Router);
   loadingCtrl = inject(LoadingController);
   alertCtrl = inject(AlertController);
-
+  toastCtrl = inject(ToastController);
 
  
 
@@ -31,8 +31,17 @@ export class UtilsService {
     const alert = await this.alertCtrl.create(opts);
     await alert.present();
   }
+   // ============ Toast =============
+   async presentToast(opts?: ToastOptions) {
+    const toast = await this.toastCtrl.create(opts);
+    toast.present();
+  }
 
 
+  // ============= Status Navegador ===================
+ 
+  // ============= Fechar Navegador ===================
+  
 
    // ============ Evia a qualquer pagina disponivel =============
    routerLink(url: string) {

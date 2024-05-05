@@ -9,7 +9,8 @@
         "@ionic/angular-toolkit:page": {
           "styleext": "scss",
           "standalone": true,
-          "skipTests": true
+          "skipTests": true,
+          "inlineTemplate": true
         }
       },
       "root": "",

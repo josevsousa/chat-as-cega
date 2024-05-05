@@ -9,12 +9,12 @@
 // }
 
 
-.avatar {
-  opacity: 0.3;
+.inativo {
+  opacity: 0.3 !important;
 }
 
 .ativo {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 ion-chip {

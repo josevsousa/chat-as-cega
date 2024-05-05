@@ -26,4 +26,15 @@ bootstrapApplication(AppComponent, {
         registrationStrategy: 'registerWhenStable:30000'
     })
 ],
+
+
 });
+
+// document.addEventListener('visibilitychange',()=>{
+//  if(document.visibilityState === 'visible'){
+//   document.title = "visivel"
+//  }else{
+//   document.title = "mudou de aba"
+//  } 
+// })
+
