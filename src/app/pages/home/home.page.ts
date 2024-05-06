@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonButton, IonHeader, IonToolbar, IonTitle, IonContent, IonAlert, IonTabButton, IonIcon,  IonInput, IonList, IonItem, IonLabel, IonNote, IonAvatar, IonChip, IonTabs, IonTabBar, IonButtons, IonBackButton, IonSpinner, IonItemSliding, IonItemOption, IonItemOptions, IonFooter, IonNavLink, IonText } from '@ionic/angular/standalone';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
