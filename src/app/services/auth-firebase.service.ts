@@ -59,15 +59,15 @@ export class AuthFirebaseService {
 
   }
 
-  statusUserAtivo(status: boolean) {
-    const user = this.utilsService.getFromLocalStorage('user');
-    const path = `users/${user.uid}`;
-    if(status){
-      this.updateDocument(path, {online: true});
-    }else{
-      this.updateDocument(path, {online: false});
-    }
-  }
+  // statusUserAtivo(status: boolean) {
+  //   const user = this.utilsService.getFromLocalStorage('user');
+  //   const path = `users/${user.uid}`;
+  //   if(status){
+  //     this.updateDocument(path, {online: true});
+  //   }else{
+  //     this.updateDocument(path, {online: false});
+  //   }
+  // }
 
   // ============== BASE DE DADOS FIRESTORE userList ================
   // Lista de documentos
@@ -75,7 +75,6 @@ export class AuthFirebaseService {
     const ref = collection(getFirestore(), path);
     return await collectionData(query(ref, collectionQurey));
   }
-
   // Busca um documento passando o uid
   async getDocument(path: string) {
     return (await getDoc(doc(getFirestore(), path))).data();
@@ -92,6 +91,7 @@ export class AuthFirebaseService {
   addDocument(path: string = "user", data: any) {
     return addDoc(collection(getFirestore(), path), data);
   }
+  
   // =============== upload de image ================
   // async uploadImage(path: string, data_url: string) {
   //   return uploadString(ref(getStorage(), path), data_url, 'data_url').then(() => {

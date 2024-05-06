@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { IonContent, IonInput, IonButton, IonTabButton, IonIcon, IonLabel, IonItem, IonText, IonCheckbox, IonRadio, IonRadioGroup, IonTabs, IonTabBar, IonNote } from '@ionic/angular/standalone';
-import { FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { IonContent, IonInput, IonButton, IonTabButton, IonIcon, IonLabel, IonItem, IonText, IonNote } from '@ionic/angular/standalone';
+import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UtilsService } from 'src/app/services/utils.service';
 import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
 
@@ -10,17 +10,14 @@ import { AuthFirebaseService } from 'src/app/services/auth-firebase.service';
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
   standalone: true,
-  imports: [IonNote, IonText, IonItem, IonLabel, IonIcon, IonTabButton, IonButton,
-    IonInput,
-    IonContent,
-    CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonNote, IonText, IonItem, IonLabel, IonIcon, IonTabButton, IonButton, IonInput, IonContent, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class AuthPage {
   private formBuilderService = inject(FormBuilder);
   utilsService = inject(UtilsService);
   authFirebaseService = inject(AuthFirebaseService);
 
-  protected form = this.formBuilderService.group({
+  form = this.formBuilderService.group({
     nome: ['', Validators.required]
   });
   photoImg: String = "../../../assets/img/n.png";

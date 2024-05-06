@@ -20,7 +20,6 @@ export class UtilsService {
   toastCtrl = inject(ToastController);
 
  
-
   // ========== Loading =========
   loading() {
     return this.loadingCtrl.create({ spinner: 'crescent' })
@@ -36,12 +35,6 @@ export class UtilsService {
     const toast = await this.toastCtrl.create(opts);
     toast.present();
   }
-
-
-  // ============= Status Navegador ===================
- 
-  // ============= Fechar Navegador ===================
-  
 
    // ============ Evia a qualquer pagina disponivel =============
    routerLink(url: string) {
@@ -61,7 +54,5 @@ export class UtilsService {
   delFromLocalStorage(key: string) {
     return localStorage.removeItem(key);
   }
-
-
 
 }
