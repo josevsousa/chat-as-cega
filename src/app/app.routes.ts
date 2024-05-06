@@ -20,9 +20,14 @@ export const routes: Routes = [
     canActivate: [noAuthGuard]
   },
   {
+    path: 'bate-papo',
+    loadComponent: () => import('./pages/bate-papo/bate-papo.page').then( m => m.BatePapoPage)
+  },
+  {
     path: '**',
     redirectTo: 'auth',
     pathMatch: 'full',
   }
+
 
 ];

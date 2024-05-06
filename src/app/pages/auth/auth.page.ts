@@ -24,9 +24,9 @@ export class AuthPage {
   sexo: String = 'n';
 
   async onSubmit() {
-
-    const loading = await this.utilsService.loading();
-    await loading.present();
+    console.log("passei aqui a");
+    // const loading = await this.utilsService.loading();
+    // await loading.present();
 
     const user = {
       uid: new Date().toISOString(),
@@ -45,7 +45,7 @@ export class AuthPage {
       position: 'middle',
       icon: 'alert-circle-outline'
     }))
-      .finally(() => loading.dismiss())
+      // .finally(() => loading.dismiss())
   };
 
   imgSel(sexo: string) {

@@ -17,6 +17,7 @@ export class AuthFirebaseService {
   //============== AUTH userAtivo SEM Google ===============
   login(user: User) {
 
+    console.log("passei aqui b");
     // Path do user no DB
     const path = `users/${user.uid}`;
 
@@ -59,15 +60,15 @@ export class AuthFirebaseService {
 
   }
 
-  // statusUserAtivo(status: boolean) {
-  //   const user = this.utilsService.getFromLocalStorage('user');
-  //   const path = `users/${user.uid}`;
-  //   if(status){
-  //     this.updateDocument(path, {online: true});
-  //   }else{
-  //     this.updateDocument(path, {online: false});
-  //   }
-  // }
+  statusUserAtivo(status: boolean) {
+    const user = this.utilsService.getFromLocalStorage('user');
+    const path = `users/${user.uid}`;
+    if(status){
+      this.updateDocument(path, {online: true});
+    }else{
+      this.updateDocument(path, {online: false});
+    }
+  }
 
   // ============== BASE DE DADOS FIRESTORE userList ================
   // Lista de documentos

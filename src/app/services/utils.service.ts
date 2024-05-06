@@ -19,7 +19,6 @@ export class UtilsService {
   alertCtrl = inject(AlertController);
   toastCtrl = inject(ToastController);
 
- 
   // ========== Loading =========
   loading() {
     return this.loadingCtrl.create({ spinner: 'crescent' })

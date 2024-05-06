@@ -5,9 +5,8 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
   selector: 'app-root',
   template: `
     <ion-app>
-        <ion-router-outlet></ion-router-outlet>
-    </ion-app>
-  `,
+      <ion-router-outlet></ion-router-outlet>
+    </ion-app>`,
   standalone: true,
   imports: [IonApp, IonRouterOutlet],
 })
