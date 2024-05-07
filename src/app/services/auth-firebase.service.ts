@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { UtilsService } from './utils.service';
-import { User } from '../interfaces/user';
+import { UserAtivo } from '../interfaces/userAtivo';
 
 // firestore
 import { doc, getDoc, addDoc, getFirestore, setDoc, updateDoc, collection, collectionData, query } from '@angular/fire/firestore';
@@ -15,7 +15,7 @@ export class AuthFirebaseService {
   firestore = inject(AngularFireStorage);
 
   //============== AUTH userAtivo SEM Google ===============
-  login(user: User) {
+  login(user: UserAtivo) {
 
     console.log("passei aqui b");
     // Path do user no DB

@@ -50,6 +50,11 @@ export class HomePage implements OnInit {
     });
   }
 
+  batePapo(uid: string){
+    const path = `bate-papo/${uid}`;
+    this.utilsService.routerLink(path); 
+  }
+
   carregarUsers(){
     console.log("===== Carregando users =====");
     // === carregar users do firebase
@@ -60,9 +65,6 @@ export class HomePage implements OnInit {
       .catch(err => {console.log('erro carragarUsers: ', err)})
   } 
   
-  onClick(event: any){
-    console.log("aquiiiii: ", event);
-  }
 
   // enviarAlerta() {
   //   this.utilsService.presentAlert({

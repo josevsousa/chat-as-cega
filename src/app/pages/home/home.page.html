@@ -5,7 +5,7 @@
       @for (user of usersList$| async; track $index) {
         @if (user.uid !== userAtivo.uid) {
           <ion-item-sliding>
-            <ion-item [button]="true" (click)="onClick(user)">
+            <ion-item [button]="true" (click)="batePapo(user.uid)">
               <ion-avatar aria-hidden="true" slot="start">
                 <img src="{{user.imgPhoto}}" class="inativo" [ngClass]=" user.online ? 'ativo' : 'inativo'">
               </ion-avatar>

@@ -1,7 +1,7 @@
 export interface User {
-    uid: string,
-    name: string,
-    sexo: string,
     imgPhoto: string,
-    online?: boolean
+    name: string,
+    online: boolean,
+    sexo: string,
+    uid: string
 }

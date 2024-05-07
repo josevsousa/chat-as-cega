@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../interfaces/user';
+import { UserAtivo } from '../interfaces/userAtivo';
 import {
   LoadingController, ToastController, ToastOptions
 } from '@ionic/angular'
@@ -35,13 +35,19 @@ export class UtilsService {
     toast.present();
   }
 
-   // ============ Evia a qualquer pagina disponivel =============
-   routerLink(url: string) {
-    return this.router.navigateByUrl(url);
-  }
+    // ============ Evia a qualquer pagina disponivel =============
+    routerLink(url: string) {
+     return this.router.navigateByUrl(url); 
+    }
+
+    // ============ Evia a qualquer pagina disponivel =============
+    routerLinkParam(url: string, uid: string) {
+      return this.router.navigate([url, uid]); 
+    }
+ 
 
   // ============ Guarda um elemento no localstore  =============
-  async saveInLocalStorage(key: string, value: User) {
+  async saveInLocalStorage(key: string, value: UserAtivo) {
     return await localStorage.setItem(key, JSON.stringify(value));
   }
 
